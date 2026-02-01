@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Learn — Вивчай англійську весело</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="main-header">
+            <div class="logo" onclick="showSection('home')">Alpha<br>Learn</div>
+            <nav class="navigation">
+                <button class="nav-btn" onclick="showSection('levels')">Тести</button>
+                <button class="nav-btn" onclick="showSection('grammar')">Граматика</button>
+                <button class="nav-btn" onclick="showSection('about')">Коротко про нас</button>
+            </nav>
+        </header>
+
+        <main id="home-section" class="content-section active-section">
+            <div class="description-top">
+                <p>Наш сайт – це зручний простір для вивчення англійської мови з нуля. Навчання проходить у формі гри, без стресу та складних правил. Англійська стане простішою разом з нами!</p>
+            </div>
+            <div class="hero-section">
+                <img src="1.png">
+                <div class="hero-text">
+                    <p>Запрошуємо вас приєднатися до нас та весело вивчати англійську разом. Оберіть рівень та перевірте свої знання!</p>
+                    <button class="start-btn" onclick="showSection('levels')">Почати вчитися</button>
+                </div>
+            </div>
+        </main>
+
+        <section id="levels-section" class="content-section hidden">
+            <h2 class="section-title">Оберіть рівень складності</h2>
+            <div class="levels-grid">
+                <div class="level-card" onclick="startQuiz(0)">
+                    <div class="level-icon">🌱</div>
+                    <h3>Beginner (A1)</h3>
+                    <p>20 питань: Основи мови</p>
+                </div>
+                <div class="level-card" onclick="startQuiz(1)">
+                    <div class="level-icon">🌿</div>
+                    <h3>Elementary (A2)</h3>
+                    <p>20 питань: Щоденні теми</p>
+                </div>
+                <div class="level-card" onclick="startQuiz(2)">
+                    <div class="level-icon">🌳</div>
+                    <h3>Intermediate (B1)</h3>
+                    <p>20 питань: Робота та граматика</p>
+                </div>
+                <div class="level-card" onclick="startQuiz(3)">
+                    <div class="level-icon">🎓</div>
+                    <h3>Advanced (C1)</h3>
+                    <p>20 питань: Складна лексика</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="grammar-section" class="content-section hidden">
+            <h2 class="section-title">Граматичний довідник</h2>
+            <div class="grammar-container">
+                <div class="info-card">
+                    <h3>Present Simple</h3>
+                    <p>Регулярні дії. <b>Правило:</b> V / V+s.</p>
+                    <p class="example">I work every day.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Present Continuous</h3>
+                    <p>Дія прямо зараз. <b>Правило:</b> am/is/are + V-ing.</p>
+                    <p class="example">I am studying now.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Past Simple</h3>
+                    <p>Минулі дії. <b>Правило:</b> V2 / V-ed.</p>
+                    <p class="example">I visited Kyiv yesterday.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Future Simple</h3>
+                    <p>Майбутні прогнози. <b>Правило:</b> will + V.</p>
+                    <p class="example">I will help you tomorrow.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Present Perfect</h3>
+                    <p>Результат у минулому. <b>Правило:</b> have/has + V3.</p>
+                    <p class="example">I have already eaten.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-section" class="content-section hidden">
+            <h2 class="section-title">Про проект Alpha Learn</h2>
+            <div class="info-card about-content">
+                <h3>Наша місія</h3>
+                <p>Ми робимо англійську доступною. Наш підхід базується на мікро-навчанні, що дозволяє вчити мову ефективно та без стресу.</p>
+                <h3>Переваги</h3>
+                <ul class="about-list">
+                    <li>20 питань у кожному тесті для глибокої перевірки.</li>
+                    <li>Зрозумілий довідник з граматики.</li>
+                    <li>Повністю безкоштовно та доступно.</li>
+                </ul>
+                <h3>Команда</h3>
+                <p>Розроблено викладачами спеціально для швидкого старту!</p>
+            </div>
+        </section>
+    </div>
+
+    <div id="quiz-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeQuiz()">&times;</span>
+            <div class="quiz-info">
+                <div class="progress-container"><div id="progress-fill"></div></div>
+                <span id="q-counter">1 / 20</span>
+            </div>
+            <h2 id="question-text">Завантаження...</h2>
+            <div id="options-list" class="options-grid"></div>
+            <div id="result-container" class="hidden">
+                <h2 id="result-title">Результат</h2>
+                <p id="result-score"></p>
+                <button class="nav-btn" onclick="closeQuiz()">До рівнів</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
